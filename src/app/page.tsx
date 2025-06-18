@@ -89,11 +89,14 @@ export default function Home() {
           <FeaturesSectionDemo/>
         </div>
       </section>
+      
+      {/* How Work Section */}
       <div>
         <section>
           <Work_Section/>
         </section>
       </div>
+      
       <section className="py-40">
         <Testimonial_Feature testimonials={sampleTestimonials} mode="dark"/>
       </section>
