@@ -10,8 +10,8 @@ interface Auth0ProviderWrapperProps {
 export default function Auth0ProviderWrapper({ children }: Auth0ProviderWrapperProps) {
   // Get the current URL for dynamic callback
   const redirectUri = typeof window !== 'undefined' 
-    ? window.location.origin 
-    : process.env.NEXT_PUBLIC_AUTH0_CALLBACK_URL || 'http://localhost:3000';
+    ? `${window.location.origin}/after-login`
+    : process.env.NEXT_PUBLIC_AUTH0_CALLBACK_URL || 'http://localhost:3000/after-login';
 
   return (
     <Auth0Provider
