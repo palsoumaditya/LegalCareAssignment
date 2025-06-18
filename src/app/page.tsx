@@ -53,14 +53,14 @@ export default function Home() {
       {/* Hero Section */}
       <section className="min-h-screen flex flex-col items-center justify-center px-4">
         <div className="text-center space-y-4 sm:space-y-6 md:space-y-8 max-w-4xl mx-auto">
-          <h1 className="font-bold text-white leading-tight text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl">
+          <h1 className="font-bold text-white leading-tight text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl merriweather-title">
             Facing Legal Trouble?
           </h1>
           <div className="flex flex-col sm:flex-row justify-center items-center w-full gap-2 sm:gap-3">
-            <span className="text-2xl sm:text-3xl md:text-3xl lg:text-3xl xl:text-5xl 2xl:text-6xl font-bold text-white">
+            <span className="text-2xl sm:text-3xl md:text-3xl lg:text-3xl xl:text-5xl 2xl:text-6xl font-bold text-white merriweather-title">
               Just Use
             </span>
-            <Cover className="inline-block text-blue-400 font-extrabold text-2xl sm:text-3xl md:text-3xl lg:text-3xl xl:text-5xl 2xl:text-6xl align-middle">
+            <Cover className="inline-block text-blue-400 font-extrabold text-2xl sm:text-3xl md:text-3xl lg:text-3xl xl:text-5xl 2xl:text-6xl align-middle pacifico-regular">
               Legal Care
             </Cover>
           </div>

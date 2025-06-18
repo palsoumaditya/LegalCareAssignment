@@ -1,6 +1,7 @@
 'use client';
 import Link from 'next/link';
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 
 function PricingSectionBlack() {
   const [billingCycle, setBillingCycle] = useState('monthly');
@@ -52,14 +53,14 @@ function PricingSectionBlack() {
 
   return (
     <div>
-      <div className="flex flex-col justify-center items-center gap-4 sm:gap-5 mt-5">
+      <div className="flex flex-col justify-center items-center gap-6 sm:gap-8 md:gap-12 mt-8 md:mt-16 mb-8 md:mb-16">
         <div className="text-4xl sm:text-6xl">Our Pricing Plans</div>
         <span className="text-center text-gray-300 text-sm sm:text-base">
           Select from our range of affordable plans <br /> tailored to suit every budget.
         </span>
       </div>
 
-      <div className="flex justify-center items-center mt-5">
+      <div className="flex justify-center items-center mt-5 mb-8 md:mb-12">
         <div className="bg-white w-56 h-9 rounded-full flex justify-between items-center px-1 z-50">
           <span
             className={`px-5 py-1 rounded-full text-sm cursor-pointer text-black ${billingCycle === 'monthly' ? 'bg-black text-white' : ''}`}
@@ -76,9 +77,15 @@ function PricingSectionBlack() {
         </div>
       </div>
 
-      <div className="flex justify-center items-center flex-wrap gap-3 pb-3 px-2 mt-6">
-        {pricingPlans.map((plan) => (
-          <div key={plan.name} className="bg-black border w-80 rounded-2xl h-auto pb-10 shadow-lg z-50">
+      <div className="flex justify-center items-center flex-wrap gap-4 md:gap-10 pb-3 px-2 mt-8 md:mt-12">
+        {pricingPlans.map((plan, idx) => (
+          <motion.div
+            key={plan.name}
+            className="bg-black border w-80 rounded-2xl h-auto pb-10 shadow-lg z-50 cursor-pointer will-change-transform"
+            initial={{ opacity: 0.7, y: 20, scale: 1 }}
+            whileHover={{ opacity: 1, y: 0, scale: 0.96, transition: { type: 'spring', stiffness: 300, damping: 20 } }}
+            transition={{ duration: 0.6, delay: idx * 0.15, type: 'spring', bounce: 0.2 }}
+          >
             <div className="p-5 rounded-2xl">
               <span className="text-white">{plan.name}</span>
               <div className="mt-3 mb-2">
@@ -110,7 +117,7 @@ function PricingSectionBlack() {
                 </span>
               ))}
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>
