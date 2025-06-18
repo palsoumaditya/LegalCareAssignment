@@ -32,13 +32,14 @@ export function NavbarDemo() {
 
   return (
     <div className="relative w-full">
-      <Navbar>
+      <Navbar isLoggedIn={true}>
         {/* Desktop Navigation */}
         <NavBody>
-          <NavbarLogo />
+          <div className="flex items-center gap-2">
+            <NavbarLogo isLoggedIn={true} />
+          </div>
           <NavItems items={navItems} />
           <div className="flex items-center gap-4">
-            <NavbarButton variant="secondary">Login</NavbarButton>
             <NavbarButton variant="primary">Book a call</NavbarButton>
           </div>
         </NavBody>
@@ -46,7 +47,10 @@ export function NavbarDemo() {
         {/* Mobile Navigation */}
         <MobileNav>
           <MobileNavHeader>
-            <NavbarLogo />
+            <div className="flex items-center gap-2">
+              <NavbarLogo isLoggedIn={true} />
+              <NavbarButton variant="secondary" isLoggedIn={true} className="!px-2 !py-1 text-xs">Logout</NavbarButton>
+            </div>
             <MobileNavToggle
               isOpen={isMobileMenuOpen}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -68,13 +72,6 @@ export function NavbarDemo() {
               </a>
             ))}
             <div className="flex w-full flex-col gap-4">
-              <NavbarButton
-                onClick={() => setIsMobileMenuOpen(false)}
-                variant="primary"
-                className="w-full"
-              >
-                Login
-              </NavbarButton>
               <NavbarButton
                 onClick={() => setIsMobileMenuOpen(false)}
                 variant="primary"

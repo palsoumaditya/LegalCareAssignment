@@ -1,6 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export default function AfterLoginPage() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const handleLogout = () => {
+    // Call your auth provider's logout method here
+    setIsLoggedIn(false); // Or update your auth state accordingly
+  };
+
   return (
     <div className="min-h-screen flex flex-col justify-between bg-black">
       {/* Centered Prompt */}

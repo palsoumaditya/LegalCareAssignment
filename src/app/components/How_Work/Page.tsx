@@ -27,12 +27,12 @@ const FeatureSection = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       if (progress < 100) {
-        setProgress((prev) => prev + 3.33); 
+        setProgress((prev) => prev + 10);
       } else {
         setCurrentFeature((prev) => (prev + 1) % features.length);
         setProgress(0);
       }
-    }, 100);
+    }, 80);
 
     return () => clearInterval(timer);
   }, [progress]);
@@ -40,7 +40,7 @@ const FeatureSection = () => {
 
 
   return (
-    <div className="min-h-screen bg-black text-white p-8 md:p-12 flex items-center justify-center">
+    <div className="min-h-screen bg-black text-white p-8 md:p-12 flex items-center justify-center scroll-smooth">
       <div className="max-w-7xl mx-auto w-full">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-10 md:mb-12 text-center text-gray-100">How to get Started</h2>
         <div className="flex flex-col md:grid md:grid-cols-2 gap-6 md:gap-10">
