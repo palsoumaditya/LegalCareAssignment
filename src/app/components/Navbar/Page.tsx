@@ -30,8 +30,7 @@ export function NavbarDemo() {
   ];
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
-  const { logout } = useAuth0();
+  const { logout, isAuthenticated } = useAuth0();
 
   const handleLogout = () => {
     logout({ logoutParams: { returnTo: window.location.origin } });
@@ -39,13 +38,13 @@ export function NavbarDemo() {
 
   return (
     <div className="relative w-full">
-      <Navbar isLoggedIn={isLoggedIn}>
+      <Navbar isLoggedIn={isAuthenticated}>
         {/* Desktop Navigation */}
         <NavBody className="hidden md:flex">
           <div className="flex items-center gap-2">
-            <NavbarLogo isLoggedIn={isLoggedIn} />
-            {isLoggedIn && (
-              <NavbarButton variant="secondary" isLoggedIn={isLoggedIn} onClick={handleLogout}>
+            <NavbarLogo isLoggedIn={isAuthenticated} />
+            {isAuthenticated && (
+              <NavbarButton variant="secondary" isLoggedIn={isAuthenticated} onClick={handleLogout}>
                 Logout
               </NavbarButton>
             )}
@@ -60,9 +59,9 @@ export function NavbarDemo() {
         <MobileNav className="flex md:hidden">
           <MobileNavHeader>
             <div className="flex items-center gap-2">
-              <NavbarLogo isLoggedIn={isLoggedIn} />
-              {isLoggedIn && (
-                <NavbarButton variant="secondary" isLoggedIn={isLoggedIn} className="!px-2 !py-1 text-xs" onClick={handleLogout}>
+              <NavbarLogo isLoggedIn={isAuthenticated} />
+              {isAuthenticated && (
+                <NavbarButton variant="secondary" isLoggedIn={isAuthenticated} className="!px-2 !py-1 text-xs" onClick={handleLogout}>
                   Logout
                 </NavbarButton>
               )}
